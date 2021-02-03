@@ -29,5 +29,8 @@ CREATE TABLE users (
   teamId INTEGER unsigned,
   familyName CHAR(255),
   givenName CHAR(255)
+  --role
+  --isadmin
 );
+----create table to maintain bit 
 

@@ -14,3 +14,4 @@ echo "4.Running tests"
 npm test
 
 echo "Open server.js and debug with F5. Login with 'dojouser/SecureCodingDojo'"
+                              
