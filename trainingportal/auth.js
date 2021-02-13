@@ -14,8 +14,6 @@ const captchapng = require('captchapng');
 const fs = require('fs');
 
 
-// <!--check for sessions-->
-// will have to change
 if(!util.isNullOrUndefined(config.samlProviderCertFilePath)){
     var samlProviderCert = fs.readFileSync(path.join(__dirname, config.samlProviderCertFilePath), 'utf-8');
 } 
@@ -53,7 +51,6 @@ try{
 }
 catch(ex){/*Do nothing*/}
 
-// login stragies
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var SlackStrategy = require('passport-slack').Strategy;
 var LocalStrategy = require('passport-local').Strategy;
@@ -444,12 +441,13 @@ exports.getPassport = function (){
     if("slackClientId" in config) passport.use(getSlackStrategy());
     if("localUsersPath" in config) passport.use(getLocalStrategy());
     if("ldapServer" in config) passport.use(getLdapStrategy());
-    //var samlStrategy = getSamlStrategy();
-   // if(config.samlLogProviderMetadata){
-    //    console.log(samlStrategy.generateServiceProviderMetadata(samlProviderCert));
-    //}
-    //if("samlCert" in config) 
-    //passport.use(getSamlStrategy());
+
+    var samlStrategy = getSamlStrategy();
+    if(config.samlLogProviderMetadata){
+        console.log(samlStrategy.generateServiceProviderMetadata(samlProviderCert));
+    }
+    if("samlCert" in config) passport.use(getSamlStrategy());
+
 
     // serialize and deserialize
     passport.serializeUser((user, done) => {

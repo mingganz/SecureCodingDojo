@@ -1,5 +1,4 @@
 var app = angular.module('challengesApp', ['ngRoute','dataSvcModule']);
-// call for cahllenges html
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {

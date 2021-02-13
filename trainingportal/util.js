@@ -27,13 +27,11 @@ exports.getMongoURI = ()=>{
   return require(mongoPath);
 }
 exports.getConfig = () => {
-  //console.log("HEREEEEE");
   let dataDir = exports.getDataDir();
   let configPath = path.join(dataDir, 'config.json');
   if(!fs.existsSync(configPath)){
     console.warn(`WARNING: Config file not found at ${configPath}. Trying default file.`);
     configPath = path.join(__dirname, 'config.json');
-    
     if(!fs.existsSync(configPath)){
       //if still doesn't exist exit
       console.error(`ERROR: Config file not found.`);
