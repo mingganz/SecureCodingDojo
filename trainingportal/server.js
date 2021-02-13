@@ -24,7 +24,8 @@ const fs = require('fs');
 const app = express();
 const uid = require('uid-safe');
 const validator = require('validator');
-
+const mdatabase = require("./mongodb");
+const mongodbdata = require("./database/securedojodbmodel");
 const db = require(path.join(__dirname, 'db'));
 const auth = require(path.join(__dirname, 'auth'));
 const util = require(path.join(__dirname, 'util'));
@@ -501,7 +502,15 @@ app.get('/api/report/:moduleId',  async (req, res) => {
   res.send(reportUsers);
 
 });
+app.get("/public/securedojodbdata", (req, res) => {
 
+ mongodbdata.find({}, (error, data) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(data[0].vw);
+  })
+}) 
 db.init();
 
 process.on('SIGINT', function() {

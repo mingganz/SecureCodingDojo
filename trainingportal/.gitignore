@@ -8,3 +8,4 @@ allowedAccounts.json
 .ebextensions
 *.db
 runCustomTestScripts.sh
+.env

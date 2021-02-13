@@ -42,8 +42,6 @@
 
 </head>
 <body>
-    <!--check for sessions-->
-<!--Need to implement login in this file (session fetch) -- admin and normal user(dont need to login), we can use uottawa login-->
     <div ng-app="challengesApp" ng-controller="mainCtrl">
         
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
@@ -59,6 +57,7 @@
                     <li class="navbar-item" ng-class="{ active: isActive('/activity')}"><a class="nav-link" href="#!activity">Activity</a></li>
                     <li class="navbar-item" ng-class="{ active: isActive('/dashboard')}"><a class="nav-link"href="#!dashboard">Dashboard</a></li>
                     <li class="navbar-item" ng-class="{ active: isActive('/report')}"><a class="nav-link" href="#!report">Report</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="https://securecodingdojoadminteam1.herokuapp.com" target="_blank">Admin page</a></li>
                 </ul>
             
                 <ul class="navbar-nav">

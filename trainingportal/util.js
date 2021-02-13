@@ -10,12 +10,26 @@ exports.getDataDir = () => {
   }
   return dataDir;
 }
-
+exports.getMongoURI = ()=>{
+  let dataDir = exports.getDataDir();
+  let mongoPath = path.join(dataDir, 'mongo.json');
+  if(!fs.existsSync(mongoPath)){
+    console.warn(`WARNING: Config file not found at ${mongoPath}. Trying default file.`);
+    mongoPath = path.join(__dirname, 'mongoPath.json');
+    
+    if(!fs.existsSync(mongoPath)){
+      //if still doesn't exist exit
+      console.error(`ERROR: Config file not found.`);
+      process.exit(1);
+    }
+  }
+  
+  return require(mongoPath);
+}
 exports.getConfig = () => {
   //console.log("HEREEEEE");
   let dataDir = exports.getDataDir();
   let configPath = path.join(dataDir, 'config.json');
-  console.log("HEREEEEE",configPath);
   if(!fs.existsSync(configPath)){
     console.warn(`WARNING: Config file not found at ${configPath}. Trying default file.`);
     configPath = path.join(__dirname, 'config.json');
@@ -27,7 +41,6 @@ exports.getConfig = () => {
     }
   }
   
-  console.log("hhhhhhhhhhhhhhhhhhh",require(configPath));
   return require(configPath);
 }
 

@@ -444,9 +444,7 @@ exports.getPassport = function (){
     if("slackClientId" in config) passport.use(getSlackStrategy());
     if("localUsersPath" in config) passport.use(getLocalStrategy());
     if("ldapServer" in config) passport.use(getLdapStrategy());
-    console.log("heheheheheh");
     //var samlStrategy = getSamlStrategy();
-    console.log("hehehehehehhahahahahah");
    // if(config.samlLogProviderMetadata){
     //    console.log(samlStrategy.generateServiceProviderMetadata(samlProviderCert));
     //}
