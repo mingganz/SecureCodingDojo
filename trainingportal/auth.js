@@ -442,11 +442,11 @@ exports.getPassport = function (){
     if("localUsersPath" in config) passport.use(getLocalStrategy());
     if("ldapServer" in config) passport.use(getLdapStrategy());
 
-    var samlStrategy = getSamlStrategy();
-    if(config.samlLogProviderMetadata){
-        console.log(samlStrategy.generateServiceProviderMetadata(samlProviderCert));
-    }
-    if("samlCert" in config) passport.use(getSamlStrategy());
+    // var samlStrategy = getSamlStrategy();
+    // if(config.samlLogProviderMetadata){
+    //     console.log(samlStrategy.generateServiceProviderMetadata(samlProviderCert));
+    // }
+    // if("samlCert" in config) passport.use(getSamlStrategy());
 
 
     // serialize and deserialize

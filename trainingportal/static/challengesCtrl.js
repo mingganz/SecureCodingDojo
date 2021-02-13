@@ -66,11 +66,12 @@ app.controller("challengesCtrl", function($scope, $http, $routeParams) {
 
     getviewsolutioninfo = () => {
         var retval;
+        
         $http.get('/public/securedojodbdata')
         .then((response) => {
             if(response != null && response.data != null){
-                console.log("view::",response);
-                retval = (response);
+                console.log("view::",response.data);
+                retval = Boolean(response.data);
             }
         });
         return retval;
