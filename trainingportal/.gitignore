@@ -9,3 +9,4 @@ allowedAccounts.json
 *.db
 runCustomTestScripts.sh
 .env
+mongo.json

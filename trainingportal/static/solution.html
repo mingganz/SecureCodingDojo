@@ -1,6 +1,9 @@
-<div class="container" ng-app="challengesApp" ng-controller="solutionCtrl">
+<div class="container" ng-app="challengesApp" ng-controller="solutionCtrl" ng-show="solutionvisibilitypermissions">
     <div ng-include="solutionLink" highlight-code></div>
     <button class="btn btn-secondary" onclick="window.history.back()">Back</button>
 
+</div>
+<div ng-show="! solutionvisibilitypermissions">
+You donot have permissions to view solutions. Please contact your administrator for this.
 </div>
 
